@@ -1,108 +1,115 @@
-# 💳 CampusPay — Smart Distributed Payment System
+# CampusPay — Distributed Microservices Payment System
 
-> 🚀 Sistem pembayaran kampus berbasis **Microservices Architecture** dengan pendekatan **Event-Driven** dan implementasi **Lamport Logical Clock** untuk menjaga konsistensi data pada sistem terdistribusi.
-
----
-
-## 🌟 Highlight
-
-- ⚡ 8 Microservices Architecture
-- 🔄 Event-Driven System (RabbitMQ)
-- ⏱️ Lamport Logical Clock Implementation
-- 💰 Mass Billing Automation
-- 📊 Real-time Notification System
-- 🌙 Modern Admin Panel (Filament + Dark Mode)
+CampusPay adalah sistem pembayaran kampus berbasis Microservices Architecture yang dirancang menggunakan pendekatan Event-Driven serta implementasi Lamport Logical Clock untuk menjaga konsistensi data pada sistem terdistribusi.
 
 ---
 
-## 📌 Overview
+## Overview
 
-**CampusPay** adalah sistem pembayaran kampus berbasis microservices yang dirancang untuk:
+CampusPay dikembangkan untuk mengelola proses pembayaran kampus secara terstruktur, otomatis, dan scalable. Sistem ini menangani beberapa proses utama, yaitu:
 
-- Mengelola tagihan mahasiswa secara otomatis
-- Memproses pembayaran (Virtual Account & Manual)
-- Mencatat transaksi secara real-time
-- Mengirim notifikasi ke mahasiswa
-- Menghasilkan laporan keuangan
+- Generate tagihan mahasiswa
+- Proses pembayaran (Virtual Account dan manual)
+- Pencatatan transaksi
+- Notifikasi kepada pengguna
+- Pelaporan keuangan
 
-### 🎯 Tujuan Sistem
-- Mengurangi proses manual
-- Menghindari duplikasi tagihan
-- Meningkatkan transparansi transaksi
-- Menyediakan sistem scalable & modern
+Pendekatan yang digunakan dalam pengembangan sistem ini meliputi:
 
----
-
-## 🧠 My Role
-
-Sebagai developer, saya:
-
-- Mendesain arsitektur sistem microservices
-- Mengembangkan backend menggunakan Laravel
-- Mengimplementasikan event-driven architecture
-- Menerapkan Lamport Logical Clock
-- Mendesain database & API
-- Membangun admin panel menggunakan Filament
+- Microservices Architecture
+- REST API dan Event-Driven Communication
+- Message Broker (RabbitMQ)
+- Lamport Logical Clock untuk sinkronisasi waktu logis
 
 ---
 
-## 🏗️ System Architecture
+## Tujuan Sistem
 
-📍 **[Letakkan DIAGRAM ARSITEKTUR di sini]**
+Tujuan utama dari pengembangan CampusPay adalah:
 
-### 🔹 Core Services (REST API)
-- Auth Service → Login & Authorization
-- Student Service → Data mahasiswa & semester
-- Billing Service → Manajemen tagihan
-- VA Service → Generate Virtual Account
-
-### 🔹 Event-Driven Services
-- Payment Service → Proses pembayaran
-- Transaction Service → Logging transaksi (Lamport Clock)
-- Notification Service → Kirim notifikasi
-- Report Service → Generate laporan
-
-### 🔹 Message Broker
-- RabbitMQ → Penghubung antar service
+- Mengurangi proses manual dalam pengelolaan pembayaran
+- Menghindari duplikasi data tagihan
+- Meningkatkan efisiensi operasional
+- Menyediakan sistem yang scalable dan modular
+- Menjamin konsistensi data dalam sistem terdistribusi
 
 ---
 
-## 🔄 Business Flow
+## Arsitektur Sistem
 
-📍 **[Letakkan DIAGRAM USE CASE / FLOW di sini]**
+[Letakkan diagram arsitektur di sini]
 
-Alur sistem:
+Sistem terdiri dari beberapa layanan (services) yang berdiri sendiri dan saling terhubung.
 
-1. Admin generate tagihan massal
-2. Billing Service publish event ke RabbitMQ
-3. Payment Service memproses pembayaran
-4. Transaction Service mencatat transaksi (Lamport Clock)
-5. Notification Service mengirim notifikasi
+### Core Services (REST API)
+
+- Auth Service  
+  Mengelola proses autentikasi dan otorisasi pengguna.
+
+- Student Service  
+  Mengelola data mahasiswa dan semester.
+
+- Billing Service  
+  Mengelola pembuatan dan pengolahan tagihan.
+
+- Virtual Account Service  
+  Menghasilkan nomor Virtual Account untuk pembayaran.
+
+### Event-Driven Services
+
+- Payment Service  
+  Mengelola proses pembayaran.
+
+- Transaction Service  
+  Mencatat transaksi dan mengelola Lamport Logical Clock.
+
+- Notification Service  
+  Mengirim notifikasi kepada pengguna.
+
+- Report Service  
+  Menghasilkan laporan dalam format PDF dan Excel.
+
+### Message Broker
+
+- RabbitMQ  
+  Digunakan sebagai penghubung antar service melalui event.
+
+---
+
+## Alur Proses Sistem
+
+[Letakkan diagram use case atau flow di sini]
+
+Alur utama sistem adalah sebagai berikut:
+
+1. Admin keuangan melakukan generate tagihan massal
+2. Billing Service mengirim event ke RabbitMQ
+3. Payment Service memproses event pembayaran
+4. Transaction Service mencatat transaksi menggunakan Lamport Clock
+5. Notification Service mengirim notifikasi ke mahasiswa
 6. Mahasiswa melakukan pembayaran
-7. Status tagihan terupdate otomatis
+7. Status tagihan diperbarui secara otomatis
 
 ---
 
-## ⏱️ Distributed System Concept
+## Konsep Sistem Terdistribusi
 
-📍 **[Letakkan DIAGRAM LAMPORT CLOCK di sini]**
+[Letakkan diagram Lamport Clock di sini]
 
-### 🧠 Lamport Logical Clock
+Sistem ini mengimplementasikan Lamport Logical Clock untuk:
 
-Digunakan untuk:
-
-- Menjaga urutan event antar service
-- Sinkronisasi sistem tanpa shared clock
-- Menghindari konflik data
-- Audit log yang konsisten
+- Menjaga urutan kejadian (event ordering)
+- Menghindari konflik data antar service
+- Menyediakan pencatatan log yang konsisten
+- Mendukung sinkronisasi sistem tanpa ketergantungan waktu fisik
 
 ---
 
-## 🗄️ Database Design
+## Desain Basis Data
 
-📍 **[Letakkan ERD di sini]**
+[Letakkan ERD di sini]
 
-Entity utama:
+Entity utama dalam sistem meliputi:
 
 - Mahasiswa
 - Semester
@@ -114,22 +121,22 @@ Entity utama:
 
 ---
 
-## ⚙️ Tech Stack
+## Teknologi yang Digunakan
 
-| Layer        | Technology              |
-|--------------|------------------------|
-| Backend      | Laravel (Microservices)|
-| Frontend     | Filament Admin Panel   |
-| Database     | MySQL                  |
-| Messaging    | RabbitMQ               |
-| API          | RESTful API            |
-| Architecture | Microservices          |
-| Pattern      | Event-Driven           |
-| Logging      | Lamport Logical Clock  |
+| Komponen     | Teknologi                |
+|--------------|--------------------------|
+| Backend      | Laravel (Microservices)  |
+| Frontend     | Filament Admin Panel     |
+| Database     | MySQL                    |
+| Messaging    | RabbitMQ                 |
+| API          | RESTful API              |
+| Arsitektur   | Microservices            |
+| Pola         | Event-Driven             |
+| Logging      | Lamport Logical Clock    |
 
 ---
 
-## 📦 Project Structure
+## Struktur Proyek
 ```bash
 campuspay/
 │
@@ -149,89 +156,74 @@ campuspay/
 
 ---
 
-## 👥 User Roles
+## Peran Pengguna
 
-### 👨‍🎓 Mahasiswa
-- Login portal
-- Lihat tagihan
-- Generate Virtual Account
-- Upload bukti transfer
-- Lihat riwayat transaksi
-- Terima notifikasi
+### Mahasiswa
 
-### 💼 Admin Keuangan
+- Login ke sistem
+- Melihat tagihan
+- Menghasilkan Virtual Account
+- Mengunggah bukti pembayaran
+- Melihat riwayat transaksi
+- Menerima notifikasi
+
+### Admin Keuangan
+
 - Generate tagihan massal
-- Kelola data mahasiswa
-- Verifikasi pembayaran
-- Export laporan
+- Mengelola data mahasiswa
+- Verifikasi pembayaran manual
+- Mengekspor laporan
 
-### 🛡️ Superadmin
-- Kelola user
-- Kelola semester
-- Monitoring sistem
+### Superadmin
 
----
-
-## 🚀 Key Features
-
-- ✅ Generate tagihan massal (anti-duplicate)
-- ✅ Virtual Account Payment
-- ✅ Manual Payment Verification
-- ✅ Real-time Notification
-- ✅ Distributed Transaction Logging
-- ✅ Export laporan (PDF / Excel)
-- ✅ Multi-role system
-- ✅ Responsive UI + Dark Mode
+- Mengelola pengguna dan hak akses
+- Mengelola semester
+- Melakukan monitoring sistem
 
 ---
 
-## ⚡ Performance Optimization
+## Fitur Utama
 
-- Batch insert (200 data per proses)
-- Event-driven processing
-- Queue-based system
+- Generate tagihan massal dengan validasi anti-duplikasi
+- Pembayaran menggunakan Virtual Account
+- Verifikasi pembayaran manual
+- Notifikasi real-time
+- Pencatatan transaksi terdistribusi
+- Export laporan keuangan
+- Sistem multi-role
+- Tampilan responsif dengan dukungan mode gelap dan terang
+
+---
+
+## Optimasi Performa
+
+- Batch insert untuk efisiensi database
+- Event-driven processing untuk skalabilitas
+- Queue-based processing untuk menghindari blocking
 - Timeout handling antar service
-- Service isolation (scalable)
+- Isolasi service untuk meningkatkan reliability
 
 ---
 
-## 📊 Impact
+## Tantangan dan Solusi
 
-- ⏱️ Mengurangi waktu proses tagihan hingga >80%
-- 📉 Mengurangi kesalahan duplikasi data
-- 📈 Meningkatkan efisiensi operasional
-- 🔍 Mempermudah audit transaksi
-
----
-
-## 🧩 Challenges & Solutions
-
-| Challenge | Solution |
-|----------|---------|
-| Timeout saat bulk generate | Gunakan Queue Job |
-| Data tidak konsisten | Implementasi Lamport Clock |
-| Duplicate billing | Validasi existing data |
-| Service dependency | Retry & fallback |
+| Tantangan | Solusi |
+|----------|--------|
+| Proses massal lambat | Implementasi queue dan batch processing |
+| Duplikasi data | Validasi data existing |
+| Konsistensi antar service | Implementasi Lamport Clock |
+| Ketergantungan service | Retry dan fallback mechanism |
 
 ---
 
-## 📸 Preview
-
-📍 **[Tambahkan screenshot dashboard di sini]**
-
----
-
-## 🔌 API Example
+## Contoh API
 
 ### Generate Tagihan Massal
 
-```http
+Endpoint:
 POST /api/billings/bulk-generate
-│ └── va-service/
-│
-├── docs/
-├── README.md
 
+Request:
 {
   "payment_type_id": 1,
   "semester_id": 3,
@@ -239,6 +231,7 @@ POST /api/billings/bulk-generate
   "jatuh_tempo": "2026-07-01"
 }
 
+Response:
 {
   "status": "success",
   "data": {
@@ -248,15 +241,68 @@ POST /api/billings/bulk-generate
   }
 }
 
-Installation
+---
 
-git clone https://github.com/USERNAME/campuspay.git
-cd campuspay
+## Instalasi
 
-Setup tiap service:
-cd services/billing-service
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
+Clone repository:
+
+git clone https://github.com/USERNAME/campuspay.git  
+cd campuspay  
+
+Setup salah satu service:
+
+cd services/billing-service  
+composer install  
+cp .env.example .env  
+php artisan key:generate  
+php artisan migrate  
+php artisan serve  
+
+Lakukan langkah yang sama untuk service lainnya.
+
+---
+
+## Konfigurasi Environment
+
+STUDENT_SERVICE_URL=http://127.0.0.1:8002  
+BILLING_SERVICE_URL=http://127.0.0.1:8003  
+NOTIFICATION_SERVICE_URL=http://127.0.0.1:8007  
+
+---
+
+## Dampak Sistem
+
+- Mengurangi waktu proses tagihan secara signifikan
+- Mengurangi kesalahan input manual
+- Meningkatkan transparansi pembayaran
+- Mempermudah audit transaksi
+
+---
+
+## Referensi
+
+- Lamport, L. (1978)
+- Fowler, M. Microservices Architecture
+- Kleppmann, M. Designing Data-Intensive Applications
+- RabbitMQ Documentation
+- Filament PHP Documentation
+
+---
+
+## Penulis
+
+CampusPay Project  
+MUHAMAD IKBAL NURPADILA
+
+---
+
+## Lisensi
+
+MIT License
+
+---
+
+## Penutup
+
+Sistem ini menunjukkan implementasi nyata dari konsep microservices dan distributed system dalam kasus penggunaan pembayaran kampus, dengan fokus pada skalabilitas, konsistensi, dan efisiensi operasional.
