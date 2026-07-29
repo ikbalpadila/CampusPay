@@ -231,3 +231,32 @@ POST /api/billings/bulk-generate
 │
 ├── docs/
 ├── README.md
+
+{
+  "payment_type_id": 1,
+  "semester_id": 3,
+  "nominal": 700000,
+  "jatuh_tempo": "2026-07-01"
+}
+
+{
+  "status": "success",
+  "data": {
+    "created": 120,
+    "skipped": 5,
+    "total": 125
+  }
+}
+
+Installation
+
+git clone https://github.com/USERNAME/campuspay.git
+cd campuspay
+
+Setup tiap service:
+cd services/billing-service
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
