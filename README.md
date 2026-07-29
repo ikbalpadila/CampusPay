@@ -247,7 +247,7 @@ Response:
 
 Clone repository:
 
-git clone https://github.com/USERNAME/campuspay.git  
+git clone https://github.com/ikbalpadila/campuspay.git  
 cd campuspay  
 
 Setup salah satu service:
