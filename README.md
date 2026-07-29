@@ -130,16 +130,103 @@ Entity utama:
 ---
 
 ## 📦 Project Structure
+```bash
 campuspay/
 │
 ├── services/
-│ ├── auth-service/
-│ ├── student-service/
-│ ├── billing-service/
-│ ├── payment-service/
-│ ├── transaction-service/
-│ ├── notification-service/
-│ ├── report-service/
+│   ├── auth-service/
+│   ├── student-service/
+│   ├── billing-service/
+│   ├── payment-service/
+│   ├── transaction-service/
+│   ├── notification-service/
+│   ├── report-service/
+│   └── va-service/
+│
+├── docs/
+├── README.md
+
+
+---
+
+## 👥 User Roles
+
+### 👨‍🎓 Mahasiswa
+- Login portal
+- Lihat tagihan
+- Generate Virtual Account
+- Upload bukti transfer
+- Lihat riwayat transaksi
+- Terima notifikasi
+
+### 💼 Admin Keuangan
+- Generate tagihan massal
+- Kelola data mahasiswa
+- Verifikasi pembayaran
+- Export laporan
+
+### 🛡️ Superadmin
+- Kelola user
+- Kelola semester
+- Monitoring sistem
+
+---
+
+## 🚀 Key Features
+
+- ✅ Generate tagihan massal (anti-duplicate)
+- ✅ Virtual Account Payment
+- ✅ Manual Payment Verification
+- ✅ Real-time Notification
+- ✅ Distributed Transaction Logging
+- ✅ Export laporan (PDF / Excel)
+- ✅ Multi-role system
+- ✅ Responsive UI + Dark Mode
+
+---
+
+## ⚡ Performance Optimization
+
+- Batch insert (200 data per proses)
+- Event-driven processing
+- Queue-based system
+- Timeout handling antar service
+- Service isolation (scalable)
+
+---
+
+## 📊 Impact
+
+- ⏱️ Mengurangi waktu proses tagihan hingga >80%
+- 📉 Mengurangi kesalahan duplikasi data
+- 📈 Meningkatkan efisiensi operasional
+- 🔍 Mempermudah audit transaksi
+
+---
+
+## 🧩 Challenges & Solutions
+
+| Challenge | Solution |
+|----------|---------|
+| Timeout saat bulk generate | Gunakan Queue Job |
+| Data tidak konsisten | Implementasi Lamport Clock |
+| Duplicate billing | Validasi existing data |
+| Service dependency | Retry & fallback |
+
+---
+
+## 📸 Preview
+
+📍 **[Tambahkan screenshot dashboard di sini]**
+
+---
+
+## 🔌 API Example
+
+### Generate Tagihan Massal
+
+```http
+POST /api/billings/bulk-generate
 │ └── va-service/
 │
 ├── docs/
