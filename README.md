@@ -37,7 +37,6 @@ Tujuan utama dari pengembangan CampusPay adalah:
 
 ## Arsitektur Sistem
 
-[Letakkan diagram arsitektur di sini]
 
 Sistem terdiri dari beberapa layanan (services) yang berdiri sendiri dan saling terhubung.
 
@@ -78,7 +77,6 @@ Sistem terdiri dari beberapa layanan (services) yang berdiri sendiri dan saling 
 
 ## Alur Proses Sistem
 
-[Letakkan diagram use case atau flow di sini]
 
 Alur utama sistem adalah sebagai berikut:
 
@@ -94,7 +92,6 @@ Alur utama sistem adalah sebagai berikut:
 
 ## Konsep Sistem Terdistribusi
 
-[Letakkan diagram Lamport Clock di sini]
 
 Sistem ini mengimplementasikan Lamport Logical Clock untuk:
 
@@ -107,7 +104,6 @@ Sistem ini mengimplementasikan Lamport Logical Clock untuk:
 
 ## Desain Basis Data
 
-[Letakkan ERD di sini]
 
 Entity utama dalam sistem meliputi:
 
