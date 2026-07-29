@@ -137,22 +137,20 @@ Entity utama dalam sistem meliputi:
 ---
 
 ## Struktur Proyek
-```bash
 campuspay/
 │
 ├── services/
-│   ├── auth-service/
-│   ├── student-service/
-│   ├── billing-service/
-│   ├── payment-service/
-│   ├── transaction-service/
-│   ├── notification-service/
-│   ├── report-service/
-│   └── va-service/
+│ ├── auth-service/
+│ ├── student-service/
+│ ├── billing-service/
+│ ├── payment-service/
+│ ├── transaction-service/
+│ ├── notification-service/
+│ ├── report-service/
+│ └── va-service/
 │
 ├── docs/
 ├── README.md
-
 
 ---
 
